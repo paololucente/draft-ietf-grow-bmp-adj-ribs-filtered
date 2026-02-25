@@ -18,12 +18,12 @@
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
 
-<rfc category="std" docName="draft-pcmy-grow-bmp-adj-ribs-filtered-03"
-     ipr="trust200902" submissionType="IETF"
+<rfc category="std" docName="draft-ietf-grow-bmp-adj-ribs-filtered-00"
+     ipr="trust200902" submissionType="IETF" consensus="true"
      updates="7854">
 
     <front>
-        <title>
+        <title abbrev="BMP FILTERED RIBS">
 	    Filtering Adj-Rib-In and Adj-Rib-Out to BMP receivers
 	</title>
 
@@ -34,7 +34,6 @@
                     <street>Veemweg 23</street>
                     <city>Barneveld</city>
                     <code>3771</code>
-                    <region>MT</region>
                     <country>NL</country>
                 </postal>
                 <email>paolo@ntt.net</email>
@@ -69,7 +68,7 @@
       </address>
     </author>
 
-        <date year="2025"/>
+        <date year="2026"/>
 
         <area>General</area>
 

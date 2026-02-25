@@ -6,12 +6,12 @@ Global Routing Operations                                     P. Lucente
 Internet-Draft                                                C. Cardona
 Updates: 7854 (if approved)                                          NTT
 Intended status: Standards Track                           M. Srivastava
-Expires: 10 March 2026                                  Juniper Networks
-                                                        6 September 2025
+Expires: 29 August 2026                                 Juniper Networks
+                                                        25 February 2026
 
 
          Filtering Adj-Rib-In and Adj-Rib-Out to BMP receivers
-                draft-pcmy-grow-bmp-adj-ribs-filtered-03
+                draft-ietf-grow-bmp-adj-ribs-filtered-00
 
 Abstract
 
@@ -37,11 +37,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 March 2026.
+   This Internet-Draft will expire on 29 August 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Lucente, et al.           Expires 10 March 2026                 [Page 1]
+Lucente, et al.          Expires 29 August 2026                 [Page 1]
 
-Internet-Draft   Filtering Adj-Rib-In and Adj-Rib-Out to  September 2025
+Internet-Draft              BMP FILTERED RIBS              February 2026
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Lucente, et al.           Expires 10 March 2026                 [Page 2]
+Lucente, et al.          Expires 29 August 2026                 [Page 2]
 
-Internet-Draft   Filtering Adj-Rib-In and Adj-Rib-Out to  September 2025
+Internet-Draft              BMP FILTERED RIBS              February 2026
 
 
    time updates to the collector.  As network scale increases,
@@ -165,9 +165,9 @@ Internet-Draft   Filtering Adj-Rib-In and Adj-Rib-Out to  September 2025
 
 
 
-Lucente, et al.           Expires 10 March 2026                 [Page 3]
+Lucente, et al.          Expires 29 August 2026                 [Page 3]
 
-Internet-Draft   Filtering Adj-Rib-In and Adj-Rib-Out to  September 2025
+Internet-Draft              BMP FILTERED RIBS              February 2026
 
 
 6.  Security Considerations
@@ -194,9 +194,9 @@ Internet-Draft   Filtering Adj-Rib-In and Adj-Rib-Out to  September 2025
               Lucente, P. and Y. Gu, "BMP v4: TLV Support for BGP
               Monitoring Protocol (BMP) Route Monitoring and Peer Down
               Messages", Work in Progress, Internet-Draft, draft-ietf-
-              grow-bmp-tlv-18, 3 September 2025,
+              grow-bmp-tlv-19, 10 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-grow-
-              bmp-tlv-18>.
+              bmp-tlv-19>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -221,9 +221,9 @@ Internet-Draft   Filtering Adj-Rib-In and Adj-Rib-Out to  September 2025
 
 
 
-Lucente, et al.           Expires 10 March 2026                 [Page 4]
+Lucente, et al.          Expires 29 August 2026                 [Page 4]
 
-Internet-Draft   Filtering Adj-Rib-In and Adj-Rib-Out to  September 2025
+Internet-Draft              BMP FILTERED RIBS              February 2026
 
 
    [RFC9069]  Evens, T., Bayraktar, S., Bhardwaj, M., and P. Lucente,
@@ -277,4 +277,4 @@ Authors' Addresses
 
 
 
-Lucente, et al.           Expires 10 March 2026                 [Page 5]
+Lucente, et al.          Expires 29 August 2026                 [Page 5]
