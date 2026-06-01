@@ -11,7 +11,7 @@ Expires: 3 December 2026                                Juniper Networks
 
 
          Filtering Adj-Rib-In and Adj-Rib-Out to BMP receivers
-                draft-ietf-grow-bmp-adj-ribs-filtered-00
+                draft-ietf-grow-bmp-adj-ribs-filtered-01
 
 Abstract
 
