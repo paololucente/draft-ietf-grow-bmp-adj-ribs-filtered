@@ -6,8 +6,8 @@ Global Routing Operations                                     P. Lucente
 Internet-Draft                                                C. Cardona
 Updates: 7854 (if approved)                                          NTT
 Intended status: Standards Track                           M. Srivastava
-Expires: 29 August 2026                                 Juniper Networks
-                                                        25 February 2026
+Expires: 3 December 2026                                Juniper Networks
+                                                             1 June 2026
 
 
          Filtering Adj-Rib-In and Adj-Rib-Out to BMP receivers
@@ -37,7 +37,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 August 2026.
+   This Internet-Draft will expire on 3 December 2026.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Lucente, et al.          Expires 29 August 2026                 [Page 1]
+Lucente, et al.          Expires 3 December 2026                [Page 1]
 
-Internet-Draft              BMP FILTERED RIBS              February 2026
+Internet-Draft              BMP FILTERED RIBS                  June 2026
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Lucente, et al.          Expires 29 August 2026                 [Page 2]
+Lucente, et al.          Expires 3 December 2026                [Page 2]
 
-Internet-Draft              BMP FILTERED RIBS              February 2026
+Internet-Draft              BMP FILTERED RIBS                  June 2026
 
 
    time updates to the collector.  As network scale increases,
@@ -146,10 +146,10 @@ Internet-Draft              BMP FILTERED RIBS              February 2026
 5.  Operational Considerations
 
    It is recommended that when filtering RIBs, the VRF/Table Name TLV -
-   as defined in RFC9069 [RFC9069], TLV support for BMP Route Monitoring
-   and Peer Down Messages [I-D.ietf-grow-bmp-tlv] and BMP Peer Up
-   Namespace [I-D.ietf-grow-bmp-peer-up] - is specified to a meaningful
-   string that can help discriminate the nature of filtering.
+   as defined in RFC9069 [RFC9069], Extended TLV Support for BGP
+   Monitoring Protocol [I-D.ietf-grow-bmp-tlv] and BMP Peer Up Namespace
+   [RFC9736] - is specified to a meaningful string that can help
+   discriminate the nature of filtering.
 
    The VRF/Table Name TLV can be either set in the Peer Up message, so
    to implicitely apply to all NLRIs received by the peer, or set via a
@@ -165,9 +165,9 @@ Internet-Draft              BMP FILTERED RIBS              February 2026
 
 
 
-Lucente, et al.          Expires 29 August 2026                 [Page 3]
+Lucente, et al.          Expires 3 December 2026                [Page 3]
 
-Internet-Draft              BMP FILTERED RIBS              February 2026
+Internet-Draft              BMP FILTERED RIBS                  June 2026
 
 
 6.  Security Considerations
@@ -183,20 +183,12 @@ Internet-Draft              BMP FILTERED RIBS              February 2026
 
 8.  Normative References
 
-   [I-D.ietf-grow-bmp-peer-up]
-              Scudder, J. and P. Lucente, "BMP Peer Up Message
-              Namespace", Work in Progress, Internet-Draft, draft-ietf-
-              grow-bmp-peer-up-05, 2 October 2024,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-grow-
-              bmp-peer-up-05>.
-
    [I-D.ietf-grow-bmp-tlv]
-              Lucente, P. and Y. Gu, "BMP v4: TLV Support for BGP
-              Monitoring Protocol (BMP) Route Monitoring and Peer Down
-              Messages", Work in Progress, Internet-Draft, draft-ietf-
-              grow-bmp-tlv-19, 10 October 2025,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-grow-
-              bmp-tlv-19>.
+              Lucente, P., Gu, Y., Younsi, M., and P. Francois, "BMP v4:
+              Extended TLV Support for BGP Monitoring Protocol (BMP)",
+              Work in Progress, Internet-Draft, draft-ietf-grow-bmp-tlv-
+              20, 2 March 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-grow-bmp-tlv-20>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -217,19 +209,22 @@ Internet-Draft              BMP FILTERED RIBS              February 2026
               Protocol (BMP)", RFC 8671, DOI 10.17487/RFC8671, November
               2019, <https://www.rfc-editor.org/info/rfc8671>.
 
-
-
-
-
-Lucente, et al.          Expires 29 August 2026                 [Page 4]
-
-Internet-Draft              BMP FILTERED RIBS              February 2026
-
-
    [RFC9069]  Evens, T., Bayraktar, S., Bhardwaj, M., and P. Lucente,
               "Support for Local RIB in the BGP Monitoring Protocol
               (BMP)", RFC 9069, DOI 10.17487/RFC9069, February 2022,
               <https://www.rfc-editor.org/info/rfc9069>.
+
+   [RFC9736]  Scudder, J. and P. Lucente, "The BGP Monitoring Protocol
+              (BMP) Peer Up Message Namespace", RFC 9736,
+              DOI 10.17487/RFC9736, March 2025,
+              <https://www.rfc-editor.org/info/rfc9736>.
+
+
+
+Lucente, et al.          Expires 3 December 2026                [Page 4]
+
+Internet-Draft              BMP FILTERED RIBS                  June 2026
+
 
 Acknowledgements
 
@@ -277,4 +272,9 @@ Authors' Addresses
 
 
 
-Lucente, et al.          Expires 29 August 2026                 [Page 5]
+
+
+
+
+
+Lucente, et al.          Expires 3 December 2026                [Page 5]
