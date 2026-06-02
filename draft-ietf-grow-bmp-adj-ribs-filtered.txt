@@ -6,8 +6,8 @@ Global Routing Operations                                     P. Lucente
 Internet-Draft                                                C. Cardona
 Updates: 7854 (if approved)                                          NTT
 Intended status: Standards Track                           M. Srivastava
-Expires: 3 December 2026                                Juniper Networks
-                                                             1 June 2026
+Expires: 4 December 2026                                Juniper Networks
+                                                             2 June 2026
 
 
          Filtering Adj-Rib-In and Adj-Rib-Out to BMP receivers
@@ -18,9 +18,9 @@ Abstract
    Filtering RIBs in BMP (BGP Monitoring Protocol) can be desirable for
    several use-cases like, for example, limiting the amount of data a
    collector station has to process or allow a sender to export only a
-   certain afi/safi of interest.  This document defines a light way to
-   inform a collector station that a Adj-Rib-In / Adj-Rib-Out data feed
-   is being filtered.
+   certain afi/safi of interest.  This document defines an indicator to
+   inform a collector station that a Adj-Rib-In or Adj-Rib-Out data feed
+   is being filtered at the BMP exporter.
 
 Status of This Memo
 
@@ -37,7 +37,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 December 2026.
+   This Internet-Draft will expire on 4 December 2026.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Lucente, et al.          Expires 3 December 2026                [Page 1]
+Lucente, et al.          Expires 4 December 2026                [Page 1]
 
 Internet-Draft              BMP FILTERED RIBS                  June 2026
 
@@ -82,7 +82,7 @@ Table of Contents
 
 1.  Introduction
 
-   While RFC9069 [RFC9069] does define a light way to mark a Loc-Rib as
+   While Section 6.1 of [RFC9069] does define a way to mark a Loc-Rib as
    filtered, there is no equivalent mechanism for Adj-Rib-In RFC7854
    [RFC7854] and Adj-Rib-Out RFC8671 [RFC8671].  This can be easily
    addressed through the introduction of a Peer F Flag in the "BMP Peer
@@ -98,28 +98,29 @@ Table of Contents
 
 3.  Motivation and use Cases
 
-   Marking that the (Adj-RIB-in, Adj-RIB-Out) BMP session is filtered
-   can be informative to the rest of the system that they should not
-   make decisions assuming that this stream is transmitting all the
-   information about it.
+   Marking the Adj-RIB-in or Adj-RIB-Out data feed in a BMP session as
+   filtered can be informative to the rest of the data pipeline that
+   they should not make decisions assuming that this stream is
+   transmitting all the information about it.
 
-   BMP producers (routers) need to send RM updates per peer while
-   meeting several requirements, such as minimizing CPU consumption,
-   avoiding impact on key routing functions, and providing near real-
+   A BMP exporter, typically a router, need to send Route Monitoring
+   updates per peer while meeting several requirements, such as
+   minimizing CPU consumption, avoiding impact on key routing functions,
 
 
 
-Lucente, et al.          Expires 3 December 2026                [Page 2]
+Lucente, et al.          Expires 4 December 2026                [Page 2]
 
 Internet-Draft              BMP FILTERED RIBS                  June 2026
 
 
-   time updates to the collector.  As network scale increases,
-   satisfying these requirements becomes increasingly challenging.
-   Therefore, any mechanism that enables data filtering is beneficial.
-   On the BMP collector side, excessive data imposes costs on storage
-   and processing.  Reducing the volume of data limited to key points of
-   interest (for example, edge peering), can help alleviate these costs.
+   and providing near real-time updates to the collector.  As network
+   scale increases, satisfying these requirements becomes increasingly
+   challenging.  Therefore, any mechanism that enables data filtering is
+   beneficial.  On the BMP monitoring station, typically a software
+   collector, excessive data imposes costs on storage and processing.
+   Reducing the volume of data limited to key points of interest (for
+   example, edge peering), can help alleviate these costs.
 
 4.  Filtered RIB Flag
 
@@ -152,8 +153,8 @@ Internet-Draft              BMP FILTERED RIBS                  June 2026
    discriminate the nature of filtering.
 
    The VRF/Table Name TLV can be either set in the Peer Up message, so
-   to implicitely apply to all NLRIs received by the peer, or set via a
-   Group TLV in Route Monitoring messages, to esplicitely apply to all
+   to implicitly apply to all NLRIs received by the peer, or set via a
+   Group TLV in Route Monitoring messages, to explicitly apply to all
    NLRIs in the group.  Going down the Peer Up model is certainly
    optimal on the wire and simplifies packing at the sender side; going
    down the Route Monitoring model, instead, allows the receiver side to
@@ -164,8 +165,7 @@ Internet-Draft              BMP FILTERED RIBS                  June 2026
 
 
 
-
-Lucente, et al.          Expires 3 December 2026                [Page 3]
+Lucente, et al.          Expires 4 December 2026                [Page 3]
 
 Internet-Draft              BMP FILTERED RIBS                  June 2026
 
@@ -221,7 +221,7 @@ Internet-Draft              BMP FILTERED RIBS                  June 2026
 
 
 
-Lucente, et al.          Expires 3 December 2026                [Page 4]
+Lucente, et al.          Expires 4 December 2026                [Page 4]
 
 Internet-Draft              BMP FILTERED RIBS                  June 2026
 
@@ -277,4 +277,4 @@ Authors' Addresses
 
 
 
-Lucente, et al.          Expires 3 December 2026                [Page 5]
+Lucente, et al.          Expires 4 December 2026                [Page 5]
