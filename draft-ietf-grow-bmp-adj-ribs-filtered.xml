@@ -5,8 +5,7 @@
 	<!ENTITY RFC8754 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8754.xml">
 	<!ENTITY RFC8671 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8671.xml">
 	<!ENTITY RFC9069 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9069.xml">
-	<!ENTITY RFC9736 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9736.xml">
-	<!ENTITY I-D.ietf-grow-bmp-tlv SYSTEM "https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-grow-bmp-tlv.xml">
+        <!ENTITY I-D.ietf-grow-bmp-yang SYSTEM "https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-grow-bmp-yang.xml">
 ]>
 
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -94,7 +93,7 @@
 		While <xref target="RFC9069">Section 6.1 of</xref> does define a
 		way to mark a Loc-Rib as filtered, there is no equivalent mechanism
 		for Adj-Rib-In <xref target="RFC7854">RFC7854</xref> and Adj-Rib-Out
-		<xref target="RFC8671">RFC8671</xref>. This can be easily addressed
+		<xref target="RFC8671">RFC8671</xref>. This can be addressed
 		through the introduction of a Peer F Flag in the "BMP Peer Flags for
 		Peer Types 0 through 2" registry.
             </t>
@@ -111,9 +110,9 @@
             </t>
         </section>
 
-        <section title="Motivation and use Cases">
+        <section title="Motivation and Use Cases">
             <t>
-	        Marking the Adj-RIB-in or Adj-RIB-Out data feed in a BMP session as
+	        Marking the Adj-RIB-In or Adj-RIB-Out data feed in a BMP session as
 		filtered can be informative to the rest of the data pipeline that
 		they should not make decisions assuming that this stream is
 		transmitting all the information about it.
@@ -149,39 +148,47 @@
 		cases, a new Peer F Flag is defined in the "BMP Peer Flags for Peer Types
 		0 through 2" registry. If the RIB was filtered, the flag MUST be set to
 		one (1).
+                Filtering in this document refers to the BMP sender applying a filter
+                to the data sent to the BMP receiver.
 	    </t>
 	    <t>
-		In Stats messages, counts MUST reflect the filtered RIB numbers and not
-		the original RIB ones. 
+                The F flag does not impact on Statistics Report messages. In
+                Statistics Report messages, the F flag MUST be set to zero (0)
+                and SHOULD be ignored by the BMP receiver. This document does
+                not modify the semantics of any existing BMP Statistics Type.
 	    </t>
 	    <t>
-		Also should any characteristic of the filtering change, the sender MUST
-		trigger a Peer Down then followed by a new Peer Up.  
+                If a change to BMP export filtering changes the set of routes
+                reported for a RIB view, the sender MUST send a Peer Down
+                Notification followed by a Peer Up Notification before
+                reporting the changed RIB view.
 	    </t>
         </section>
 
         <section title="Operational Considerations">
             <t>
-		It is recommended that when filtering RIBs, the VRF/Table Name TLV - as
-		defined in <xref target="RFC9069">RFC9069</xref>, <xref target="I-D.ietf-grow-bmp-tlv">
-		Extended TLV Support for BGP Monitoring Protocol</xref> and <xref target="RFC9736">
-		BMP Peer Up Namespace</xref> - is specified to a meaningful string that
-		can help discriminate the nature of filtering. 
+                The F flag indicates that the view reported to the BMP receiver
+                is filtered. It does not describe the filtering criteria or
+                identify the routes that were filtered by the BMP sender to the
+                BMP receiver. The definition and communication of filtering
+                criteria are outside the scope of this document.
             </t>
             <t>
-		The VRF/Table Name TLV can be either set in the Peer Up message, so to
-		implicitly apply to all NLRIs received by the peer, or set via a Group
-		TLV in Route Monitoring messages, to explicitly apply to all NLRIs in
-		the group. Going down the Peer Up model is certainly optimal on the wire
-		and simplifies packing at the sender side; going down the Route Monitoring
-		model, instead, allows the receiver side to operate non-contextually (ie.
-		no need to look back at the Peer Up to make due associations). 
+                Filtering configuration may be exposed through management-plane
+                mechanisms. For example, the BMP YANG data model
+                <xref target="I-D.ietf-grow-bmp-yang"/> defines configuration for filtering
+                Route Monitoring messages.
             </t>
         </section>
         <section title="Security Considerations">
             <t>
-		It is not believed that this document adds any additional security
-		considerations.
+                The security considerations of RFC 7854 apply. If the F flag
+                incorrectly indicates that a filtered RIB view is unfiltered, a
+                BMP receiver may incorrectly treat an incomplete view as
+                complete, potentially resulting in incorrect operational or
+                security analysis. The F flag represents information supplied
+                by the BMP sender and does not independently verify the
+                completeness of the reported RIB view.
             </t>
         </section>
 
@@ -204,9 +211,11 @@
 		<?rfc include="reference.RFC.7854.xml"?>
                 <?rfc include="reference.RFC.8671.xml"?>
                 <?rfc include="reference.RFC.9069.xml"?>
-                <?rfc include="reference.RFC.9736.xml"?>
 
-		&I-D.ietf-grow-bmp-tlv;
+        </references>
+
+        <references title="Informative References">
+                &I-D.ietf-grow-bmp-yang;
         </references>
 
         <section anchor="Acknowledgements" title="Acknowledgements" numbered="no">
