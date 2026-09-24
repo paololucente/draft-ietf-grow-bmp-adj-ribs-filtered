@@ -5,6 +5,7 @@
 	<!ENTITY RFC8754 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8754.xml">
 	<!ENTITY RFC8671 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8671.xml">
 	<!ENTITY RFC9069 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9069.xml">
+	<!ENTITY RFC9736 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.9736.xml">
         <!ENTITY I-D.ietf-grow-bmp-yang SYSTEM "https://bib.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-grow-bmp-yang.xml">
 ]>
 
@@ -54,7 +55,7 @@
 
     <author fullname="Mukul Srivastava" initials="M."
             surname="Srivastava">
-      <organization>Juniper Networks</organization>
+      <organization>HPE</organization>
       <address>
         <postal>
           <street>10 Technology Park Dr</street>
@@ -63,7 +64,7 @@
           <code>01886</code>
           <country>USA</country>
         </postal>
-        <email>msri@juniper.net</email>
+        <email>mukul.srivastava@hpe.com</email>
       </address>
     </author>
 
@@ -228,6 +229,7 @@
 		<?rfc include="reference.RFC.7854.xml"?>
                 <?rfc include="reference.RFC.8671.xml"?>
                 <?rfc include="reference.RFC.9069.xml"?>
+                <?rfc include="reference.RFC.9736.xml"?>
 
         </references>
 
