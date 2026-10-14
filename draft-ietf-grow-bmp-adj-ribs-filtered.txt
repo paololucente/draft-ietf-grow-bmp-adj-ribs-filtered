@@ -6,8 +6,8 @@ Global Routing Operations                                     P. Lucente
 Internet-Draft                                                C. Cardona
 Updates: 7854 (if approved)                                          NTT
 Intended status: Standards Track                           M. Srivastava
-Expires: 28 March 2027                                               HPE
-                                                       24 September 2026
+Expires: 17 April 2027                                               HPE
+                                                         14 October 2026
 
 
          Filtering Adj-Rib-In and Adj-Rib-Out to BMP receivers
@@ -20,7 +20,8 @@ Abstract
    collector station has to process or allow a sender to export only a
    certain afi/safi of interest.  This document defines an indicator to
    inform a collector station that a Adj-Rib-In or Adj-Rib-Out data feed
-   is being filtered at the BMP exporter.
+   is being filtered at the BMP exporter.  This document updates RFC
+   7854.
 
 Status of This Memo
 
@@ -37,32 +38,26 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 March 2027.
+   This Internet-Draft will expire on 17 April 2027.
 
 Copyright Notice
 
    Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
-
-
-
-
-
-
-
-
-
-Lucente, et al.           Expires 28 March 2027                 [Page 1]
-
-Internet-Draft              BMP FILTERED RIBS             September 2026
-
-
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents (https://trustee.ietf.org/
    license-info) in effect on the date of publication of this document.
    Please review these documents carefully, as they describe your rights
    and restrictions with respect to this document.  Code Components
+
+
+
+Lucente, et al.           Expires 17 April 2027                 [Page 1]
+
+Internet-Draft              BMP FILTERED RIBS               October 2026
+
+
    extracted from this document must include Revised BSD License text as
    described in Section 4.e of the Trust Legal Provisions and are
    provided without warranty as described in the Revised BSD License.
@@ -95,8 +90,8 @@ Table of Contents
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in BCP
-   14 RFC 2119 [RFC2119] RFC 8174 [RFC8174] when, and only when, they
-   appear in all capitals, as shown here.
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
 
 3.  Motivation and Use Cases
 
@@ -105,21 +100,20 @@ Table of Contents
    they should not make decisions assuming that this stream is
    transmitting all the information about it.
 
-
-
-
-
-Lucente, et al.           Expires 28 March 2027                 [Page 2]
-
-Internet-Draft              BMP FILTERED RIBS             September 2026
-
-
    A BMP exporter, typically a router, need to send Route Monitoring
    updates per peer while meeting several requirements, such as
    minimizing CPU consumption, avoiding impact on key routing functions,
    and providing near real-time updates to the collector.  As network
    scale increases, satisfying these requirements becomes increasingly
    challenging.  Therefore, any mechanism that enables data filtering is
+
+
+
+Lucente, et al.           Expires 17 April 2027                 [Page 2]
+
+Internet-Draft              BMP FILTERED RIBS               October 2026
+
+
    beneficial.  On the BMP monitoring station, typically a software
    collector, excessive data imposes costs on storage and processing.
    Reducing the volume of data limited to key points of interest (for
@@ -160,16 +154,6 @@ Internet-Draft              BMP FILTERED RIBS             September 2026
    The definition and communication of filtering criteria are outside
    the scope of this document.
 
-
-
-
-
-
-Lucente, et al.           Expires 28 March 2027                 [Page 3]
-
-Internet-Draft              BMP FILTERED RIBS             September 2026
-
-
    It is recommended that when filtering RIBs, the VRF/Table Name TLV -
    as defined in RFC9069 [RFC9069] and BMP Peer Up Namespace [RFC9736] -
    is specified to a meaningful string that can help discriminate the
@@ -178,6 +162,14 @@ Internet-Draft              BMP FILTERED RIBS             September 2026
    The VRF/Table Name TLV can be either set in the Peer Up message, so
    to implicitly apply to all NLRIs received by the peer, or set via a
    Group TLV in Route Monitoring messages, to explicitly apply to all
+
+
+
+Lucente, et al.           Expires 17 April 2027                 [Page 3]
+
+Internet-Draft              BMP FILTERED RIBS               October 2026
+
+
    NLRIs in the group.  Going down the Peer Up model is certainly
    optimal on the wire and simplifies packing at the sender side; going
    down the Route Monitoring model, instead, allows the receiver side to
@@ -218,14 +210,6 @@ Internet-Draft              BMP FILTERED RIBS             September 2026
               DOI 10.17487/RFC7854, June 2016,
               <https://www.rfc-editor.org/info/rfc7854>.
 
-
-
-
-Lucente, et al.           Expires 28 March 2027                 [Page 4]
-
-Internet-Draft              BMP FILTERED RIBS             September 2026
-
-
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -234,6 +218,13 @@ Internet-Draft              BMP FILTERED RIBS             September 2026
               Zhuang, "Support for Adj-RIB-Out in the BGP Monitoring
               Protocol (BMP)", RFC 8671, DOI 10.17487/RFC8671, November
               2019, <https://www.rfc-editor.org/info/rfc8671>.
+
+
+
+Lucente, et al.           Expires 17 April 2027                 [Page 4]
+
+Internet-Draft              BMP FILTERED RIBS               October 2026
+
 
    [RFC9069]  Evens, T., Bayraktar, S., Bhardwaj, M., and P. Lucente,
               "Support for Local RIB in the BGP Monitoring Protocol
@@ -276,12 +267,6 @@ Authors' Addresses
    Email: camilo@ntt.net
 
 
-
-Lucente, et al.           Expires 28 March 2027                 [Page 5]
-
-Internet-Draft              BMP FILTERED RIBS             September 2026
-
-
    Mukul Srivastava
    HPE
    10 Technology Park Dr
@@ -292,45 +277,4 @@ Internet-Draft              BMP FILTERED RIBS             September 2026
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Lucente, et al.           Expires 28 March 2027                 [Page 6]
+Lucente, et al.           Expires 17 April 2027                 [Page 5]
